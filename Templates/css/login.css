@@ -1,0 +1,72 @@
+.register-body{
+    height: 100vh;
+    width: 100vw;
+    padding-top: 5rem;
+    overflow-y: auto;
+    background-color: blue;
+    background: linear-gradient(rgb(95, 95, 255),rgb(0, 0, 206));
+}
+.register-heading{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+    color: rgb(78, 78, 78);
+}
+.form-div{
+    width: 30rem;
+    margin: 0 auto;
+    border: 1px solid #999;
+    padding: 2rem;
+    border-radius: 4px;
+    background-color: rgb(255, 255,255);
+}
+.input-div{
+    margin-top: 0.8rem;
+}
+.btn-submit{
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: block;
+}
+.small-text{
+    font-size: 0.8rem;
+}
+.already-account-text{
+    margin: 0 auto;
+    margin-top: 2rem;
+    display: block;
+    width: 90%;
+    text-align: center;
+    color: #fff;
+    font-size:0.9rem;
+    padding-bottom: 0.3rem;
+    font-family:sans-serif;
+}
+.btn-login{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width:1200px) {
+    .form-div{
+        width: 27rem;
+    }
+}
+@media screen and (max-width:500px) {
+    .form-div{
+        width: 24rem;
+    }
+}
+@media screen and (max-width:450px) {
+    .register-body{
+        padding-top: 4rem;
+    }
+    .form-div{
+        width:95%;
+    }
+    .btn-login{
+        margin-bottom: 7rem;
+    }
+}

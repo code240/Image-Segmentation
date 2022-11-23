@@ -1,0 +1,36 @@
+body{
+    background-color: aliceblue;
+    padding-bottom: 10rem;
+    padding-top: 4rem;
+}
+.inp-head{
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+.display-img{
+    display: block;
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
+    /* border: 2px solid red; */
+}
+.img-for-segment{
+    width: 100%;
+    height: auto;
+
+}
+.btn-segment{
+    display: block;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+a:hover{
+    text-decoration: none;
+}

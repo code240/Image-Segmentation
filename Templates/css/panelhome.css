@@ -1,0 +1,125 @@
+body{
+    background-color: rgb(213, 213, 213);
+}
+.top-div{
+    position: static;
+}
+.total-article-heading{
+    font-size: 2rem;
+    color: rgb(0, 0, 0);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+.main-cover{
+    width: 80%;
+    min-height: auto;
+    /* border: 1px solid red; */
+    margin: 0 auto;
+    padding-left: 0.5%;
+    margin-bottom: 6rem;
+}
+.left-article{
+    width: 32%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    float: left;
+    border-radius: 5px;
+    /* border: 1px solid blue; */
+    height: auto;
+    box-shadow: 0px 0px 2px rgb(142, 142, 142);
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 1rem;
+
+}
+/* .mid-article{
+    width: 32%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border-radius: 5px;
+    border: 1px solid blue;
+    height: 30rem;
+    box-shadow: 0px 0px 2px rgb(142, 142, 142);
+    background-color: #fff;
+    margin-bottom: 1rem;
+}
+.right-article{
+    width: 32%;
+    float: left;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    border-radius: 5px;
+    border: 1px solid blue;
+    height: 30rem;
+    box-shadow: 0px 0px 2px rgb(142, 142, 142);
+    background-color: #fff;
+    margin-bottom: 1rem;
+
+} */
+.article-heading{
+    font-size: 1.5rem;
+    color: #333;
+    padding: 1rem;
+}
+.article-short-body{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    color: #555;
+}
+
+.div-for-para{
+    height: 21.5rem;
+    overflow-y: hidden;
+
+    /* border: 1px solid red; */
+}
+.article-btns{
+    width: 100%;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+}
+.btn-articles{
+    float: right;
+    margin-right: 0.4rem;
+
+}
+
+
+
+
+.black-background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.838);
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.notice-for-delete{
+    width: 50%;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius:5px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.delete-heading{
+    margin: 0 auto;
+    text-align: center;
+}
+.mydiv-for-btns{
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+}
+.btn-cancel-article{
+    background-color: rgb(201, 201, 201);
+}
+#artdlt{
+    display: none;
+}

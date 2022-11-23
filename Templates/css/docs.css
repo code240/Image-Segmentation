@@ -1,0 +1,217 @@
+body{
+    margin: 0;
+    background-color: #f1f3f6;
+}
+.top-div{
+    padding-bottom: 0;
+    padding-top: 0.7rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 18;
+}
+.header-main{
+    /* border: 1px solid #000; */
+    height: auto;
+}
+.left-sidebar{
+    z-index:0 ;
+    width: 25%;
+    left: 0;
+    position: fixed;
+    height: 80vh;
+    margin-top: 5.75rem;
+    margin-left: 0.5rem;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 0px 1px rgb(184, 184, 184);
+}
+.inner-sidebar::-webkit-scrollbar{
+    display: none;
+}
+.inner-sidebar{
+    width: 100%;
+    height: 90%;
+    /* border: 1px solid red; */
+    overflow-y: auto;
+    scrollbar-width: none;padding-bottom: 5rem;
+}
+.sidebar-btns{
+    display: block;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 1.2rem;
+    margin-bottom:1.2rem;
+    font-weight: 500;
+    color: rgb(0, 0, 112);
+    transition: 0.3s ease-in-out;
+}
+.sidebar-btns:hover{
+    color: blue;
+}
+.sub-btn{
+    font-size: 1rem;
+    font-weight: 400;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+.body-div{
+    height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    background-color: #f1f3f6;
+    /* border: 5px solid red; */
+    background-color:rgb(219, 227, 234);
+    padding-left: 26%;
+    padding-top: 5.75rem;
+    scrollbar-width: none;
+}
+.body-div::-webkit-scrollbar{
+        display: none;
+}
+
+.main-content-div{
+    background-color: #fff;
+    height: 99%;
+    width: 99.2%;
+    overflow-y: auto;
+}
+.content-container{
+    width: 100%;
+    height: auto;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-bottom: 5rem;
+    /* white-space: pre-line; */
+    /* border: 1px solid red; */
+}
+/* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 0px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #2c66da; 
+    border-radius: 0px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #001eb3; 
+  }
+  .main-content-heading{
+      width: 90%;
+      padding-top:2rem;
+      font-size: 2rem;
+      color: #555;
+  }
+ 
+  .content-label{
+        display: block;
+        padding-top: 1rem; 
+        padding-bottom: 1rem;
+        color: #979797;   
+  }
+  .main-content-para{
+      width: 100%;
+      padding-top: 0.2rem;
+      font-size: 1.15rem;
+      line-height: 2.1rem;
+      color: #666;
+      /* white-space: pre-line; */
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+.sub-heading-1{
+    width: 90%;
+    padding-top:2rem;
+    font-size: 1.7rem;
+    color: #333;
+}
+.points-1{
+    width: 90%;
+    padding-left: 1rem;
+    /* padding-top: 1.6rem; */
+    font-size: 1.15rem;
+    line-height: 2.1rem;
+    color: rgb(70, 70, 70);
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: block;
+}
+.sub-heading-2{
+    width: 90%;
+    padding-top:2rem;
+    font-size: 1.5rem;
+    color: #333;
+}
+.for-article-img{
+    background-color: #f3f3f3;
+    margin-top: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    display: block;
+    height: auto;
+}
+.article-img{
+    max-width: 90%;
+    max-height: 23rem;
+    display: block;
+    margin: 0 auto;
+}
+
+.algo-container{
+    width: 80%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+    color: #f3f3f3;
+    height: 30rem;
+    border-radius: 1rem;
+    background-color: #333;
+    /* margin:  0 auto; */
+    white-space: pre-line;
+    overflow-x: auto;
+    overflow-y: auto;
+    scrollbar-width: none;
+    margin-top: 2rem;
+}
+.algo-container::-webkit-scrollbar{
+    display: none;
+}
+
+
+.no-data-container{
+    width: 100%;
+    height: 50%;
+}
+.msg-box-icon{
+    display: block;
+    font-size: 10rem;
+    color: #ebebeb;
+    width: fit-content;
+    margin: 0 auto;
+}
+.no-data-msg{
+    font-size: 3rem;
+    text-align: center;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #e7e7e7;
+    user-select: none;
+}
+.highlight-docs{
+    background-color:#3390ff;
+    color: #fff;
+    padding: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    border-radius: 3px;
+}

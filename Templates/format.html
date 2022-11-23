@@ -1,0 +1,96 @@
+<h1 class="main-content-heading">
+    What is image Segmentation?
+</h1>
+<span class="content-label">Last edit : 20 April 2022 | Source : Internet</span>
+<p class="main-content-para">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Ullam ea voluptate molestias nisi dolor! At beatae facilis 
+    perspiciatis provident nam aut sapiente! Aliquid aperiam 
+    temporibus neque commodi nesciunt ullam perferendis, cumque 
+    adipisci vel. Soluta placeat velit cumque mollitia repudiandae 
+    qui consequuntur suscipit, dolore exercitationem iste aut sequi 
+    illo, molestias veniam. Est, error accusamus omnis, perferendis 
+    tempore dolorem quibusdam dignissimos distinctio consequuntur 
+    exercitationem minima! Totam, laborum molestias consequuntur 
+    ut ab assumenda nisi, nesciunt autem officia cum quasi quod 
+    excepturi aliquam possimus, magnam delectus dicta pariatur 
+    veniam unde ratione reprehenderit! Magnam dolorem dolores ad 
+    possimus veritatis est molestiae animi tenetur sint et ipsam 
+    qui labore facilis eligendi, nostrum debitis sunt impedit 
+    aut nam error laudantium a. Accusantium, soluta nulla dignissimos 
+    qdknlqo wdoiqw hdo hqowid 
+</p>
+<h2 class="sub-heading-1">
+    Types of Image Segmentation
+</h2>
+<span class="points-1">1. Cluster Image Segmentation</span>
+<span class="points-1">2. Region-Based Segmentation</span>
+<span class="points-1">3. Artificial Neural Network Based Segmentation</span>
+<span class="points-1">4. Edge Based Segmentation</span>
+<h3 class="sub-heading-2">
+    Cluster Image Segmentation
+</h3>
+<p class="main-content-para">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum perspiciatis, quod delectus praesentium accusantium illum excepturi ducimus, est nesciunt quidem expedita, officia reprehenderit impedit molestias doloribus dolorum fuga dignissimos inventore modi quo. Enim laboriosam itaque fuga recusandae maxime libero tempore temporibus a non laborum voluptas commodi sapiente praesentium dignissimos modi dolor, repellendus mollitia eveniet et fugit. Veniam autem, incidunt iste hic natus aut impedit quaerat sapiente nisi laborum? Quis minima ipsam, velit rem facere similique maxime deleniti, earum veniam, et perferendis hic ullam omnis totam non commodi aspernatur quos consectetur qui! Iste, necessitatibus voluptas incidunt sapiente totam sint blanditiis placeat?
+</p>
+<div class="for-article-img">
+    <img src="{% static 'is1.png' %}"  id="img1" class="article-img" alt="article-related-img">
+</div>
+<h3 class="sub-heading-2">
+    Region-Based Segmentation
+</h3>
+<p class="main-content-para">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum perspiciatis, quod delectus praesentium accusantium illum excepturi ducimus, est nesciunt 
+    
+    
+    quidem expedita, officia reprehenderit impedit molestias doloribus dolorum fuga dignissimos inventore modi quo. Enim laboriosam itaque fuga recusandae maxime libero tempore temporibus a non laborum voluptas commodi sapiente praesentium dignissimos modi dolor, repellendus mollitia eveniet et fugit. Veniam autem, incidunt iste hic natus aut impedit quaerat sapiente nisi laborum? Quis minima ipsam, velit rem facere similique maxime deleniti, earum veniam, et perferendis hic ullam omnis totam non commodi aspernatur quos consectetur qui! Iste, necessitatibus voluptas incidunt sapiente totam sint blanditiis placeat?
+</p>
+<h3 class="sub-heading-2">
+    Algorithm of Cluster Image Segmentation
+</h3>
+<div class="algo-container">
+    // C++ program to implement recursive Binary Search
+    #include <'bits/stdc++.h/>
+    using namespace std;
+
+    // A recursive binary search function. It returns
+    // location of x in given array arr[l..r] is present,
+    // otherwise -1
+    int binarySearch(int arr[], int l, int r, int x)
+    {
+        if (r >= l) {
+            int mid = l + (r - l) / 2;
+
+            // If the element is present at the middle
+            // itself
+            if (arr[mid] == x)
+                return mid;
+
+            // If element is smaller than mid, then
+            // it can only be present in left subarray
+            if (arr[mid] > x)
+                return binarySearch(arr, l, mid - 1, x);
+
+            // Else the element can only be present
+            // in right subarray
+            return binarySearch(arr, mid + 1, r, x);
+        }
+
+        // We reach here when element is not
+        // present in array
+        return -1;
+    }
+
+    int main(void)
+    {
+        int arr[] = { 2, 3, 4, 10, 40 };
+        int x = 10;
+        int n = sizeof(arr) / sizeof(arr[0]);
+        int result = binarySearch(arr, 0, n - 1, x);
+        (result == -1)
+            ? cout << "Element is not present in array"
+            : cout << "Element is present at index " << result;
+        return 0;
+    }
+
+</div>

@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'index.js' %}"></script>
+    <title>Verify status</title>
+    <style>
+        body{
+            background-color: rgb(205, 205, 205);
+        }
+        h1,h2{
+            font-size: 3rem;
+            width: 70%;
+            background-color: #dc3545;
+            color: #fff;
+            margin: 0 auto;
+            text-align: center;
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            border-radius: 10px;
+            margin-top: 5rem;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+        h2{
+            background-color: #28a745;
+        }
+        .back-btn{
+            padding: 14px;
+            padding-left: 35px;
+            padding-right: 35px;
+            background-color: #007bff;
+            color: #fff;
+            border: 0;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 7px;
+            display: block;
+            margin: 0 auto;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            margin-top: 10rem;
+        }
+    </style>
+</head>
+<body>
+    <noscript>
+        Please enable javascript in your browser to execute this page correctly
+    </noscript>
+    {% if em %}
+        <h1>
+            Incorrect Email ID
+        </h1>
+        <script>pushback(2)</script>
+        <button class="back-btn" onclick="window.history.back()">Go back: if you stuck here</button>
+    {% endif %}
+    
+    {% if ps %}
+        <h1>
+            Incorrect Password
+        </h1>
+        <script>pushback(2)</script>
+        <button class="back-btn" onclick="window.history.back()">Go back: if you stuck here</button>
+    {% endif %}
+    
+    {% if success %}
+        <h2>
+            Successfully Loggedin
+        </h2>
+        <script>goto("/Panel",2)</script>
+    {% endif %}
+
+
+    {% if DataSaved %}
+        <h2>
+            Article Successfully Saved
+        </h2>
+        <script>goto("/Panel",2)</script>
+    {% endif %}
+
+    {% if updationTrue %}
+        <h2>
+            Article Successfully Updated
+        </h2>
+        <script>goto("/Panel",2)</script>
+    {% endif %}
+
+    {% if NewImageUpload %}
+        <h2>
+            Article Successfully Updated With Images
+        </h2>
+        <script>goto("/Panel/Edit?a={{article}}",2)</script>
+    {% endif %}
+
+
+    {% if replacementImg %}
+        <h2>
+            Image Successfully Replaced
+        </h2>
+        <script>goto("/Panel/UpdateImageSettings?a={{article}}",2)</script>
+    {% endif %}
+
+    {% if imageDeleted %}
+        <h1>
+            Image Successfully Deleted
+        </h1>
+        <script>goto("/Panel/UpdateImageSettings?a={{article}}",2)</script>
+    {% endif %}
+    
+    {% if artDelete %}
+        <h1>
+            Article Successfully Deleted
+        </h1>
+        <script>goto("/Panel",2)</script>
+    {% endif %}
+
+    
+    {% if segment_upload %}
+        <script>goto("/Segmentation?img={{ code }}",0)</script>
+    {% endif %}
+
+    {% if imgYes %}
+        <script>goto("/Output?img={{ img }}",0)</script>
+    {% endif %}
+
+</body>
+</html>

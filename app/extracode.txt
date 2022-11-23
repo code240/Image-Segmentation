@@ -1,0 +1,148 @@
+
+
+verify method using mysql database
+now i'm not using this method because i use SQLite database
+
+
+# def verify(request):
+#     connection = mysql.connector.connect(host="localhost",user="root",password="",database="segmentation")
+#     sqlFetch = "SELECT useremail,pswd FROM admin WHERE id = 1"
+#     my_cursor = connection.cursor()
+#     my_cursor.execute(sqlFetch)
+#     userdata = my_cursor.fetchall()
+#     email = request.POST["useremail"].lower()
+#     psw = request.POST["userps"]
+#     registered_email = userdata[0][0].lower()
+#     registered_password = userdata[0][1]
+#     if email == registered_email:
+#         if psw == registered_password:
+#             # response = HttpResponse(userdata)
+#             # response.set_cookie('data',registered_email,60*60*24)
+#             request.session['admin'] = registered_email
+#             # print(request.session['admin'])
+#             return render(request,"verify.html",{"success":True})
+#             # return redirect('/Panel')
+#         else:
+#             return render(request,"verify.html",{"ps":True})
+#     else:
+#         return render(request,"verify.html",{"em":True})
+
+
+
+
+********* Save Mail Code from Mail Project ***********
+
+
+
+def SaveMail(request):
+    email=request.COOKIES.get('data','none')
+    if email=='none':
+        return render(request,'load.html')
+    if 'recieptant' not in request.POST.keys() or 'subject' not in request.POST.keys() or 'message' not in request.POST.keys():    
+        return render(request,'compose.html', {'notice':'Invalid Inputs'})
+    
+    reciept = request.POST['recieptant']
+    sub = request.POST['subject']
+    message = request.POST['message']
+    type = request.POST['type']
+    reciept_exist = 0
+    sender_name = 'NoName'
+    connection = mysql.connector.connect(host='localhost',user='root',password='',database='mail')
+    my_cursor = connection.cursor()
+    query = "SELECT name,email FROM users_info"
+    my_cursor.execute(query)
+    ls = my_cursor.fetchall()
+    today = datetime.datetime.now()
+    d = today.strftime("%b-%d-%Y")
+    t = today.strftime("%H:%M:%S")
+    for item in ls:
+      if item[1].lower()!=email.lower():  
+        if item[1].lower()==reciept.lower():
+            reciept_exist = 1
+    if reciept_exist == 0:
+            return render(request,'compose.html',{'notice':"Recieptant Doesn\'t Exist"})
+    if reciept_exist == 1:
+            for item in ls:
+                if item[1].lower() == email.lower():
+                    sender_name = item[0]
+                    import random 
+                    alph = ['P','N','R','M','T','S','Z','K','Y','V','I','F']
+                    a1=random.randint(0,11)
+                    a2=random.randint(0,11)
+                    n1=str(random.randint(100,999))
+                    n2=str(random.randint(0,9))
+                    n3=str(random.randint(100,999))
+                    code = n1+alph[a2]+n2+alph[a1]+n3+alph[int(n2)]
+        
+    if 'media' in request.FILES.keys():
+        media = request.FILES['media']
+        fn=[]
+           
+        users = IMG(pic=media)
+        users.save()
+        us = IMG.objects.all()
+        f = len(us)-1
+        ############# add in data base  ############
+        ############################################
+        query="INSERT INTO emails (sender_name,sender_email,receiver_email,subject,body,media,mail_type,time,date,code) VALUES(%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s )"
+        vals = (sender_name,email,reciept,sub,message,f,type,t,d,code,)
+        my_cursor.execute(query,vals)
+        connection.commit()
+        connection.close()
+        return render(request,"sentload.html",{'notice':'Email Sent Successfully !!'})
+    
+    if 'media' not in request.FILES.keys():
+        query="INSERT INTO emails (sender_name,sender_email,receiver_email,subject,body,media,mail_type,time,date,code) VALUES(%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s ,%s )"
+        vals = (sender_name,email,reciept,sub,message,'x',type,t,d,code,)
+        my_cursor.execute(query,vals)
+        connection.commit()
+        connection.close()
+        return render(request,"sentload.html",{'notice':'Email Sent Successfully !!'})
+
+
+
+
+
+
+# Article 
+
+<p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi, ratione hic blanditiis reiciendis sapiente amet, explicabo minima earum, veritatis facilis quasi. Animi asperiores reiciendis pariatur recusandae minima tempore ducimus assumenda tempora excepturi rerum! Eius exercitationem, pariatur velit debitis ipsum reiciendis voluptates consequatur expedita consequuntur neque accusamus sequi quia molestiae numquam rerum nisi quisquam minima dolore explicabo porro sint? Quidem possimus adipisci officia debitis. Ea aliquid exercitationem eaque provident ad, accusamus, voluptate soluta maiores quas voluptas veniam error incidunt cum. Assumenda natus aperiam recusandae accusamus architecto asperiores inventore! Quisquam vero hic blanditiis animi ducimus recusandae, eaque ad sequi officia alias odit iusto doloremque. Dolore libero laudantium molestiae maiores, maxime veniam velit minus rerum, sint repellendus magni, doloribus qui dicta quidem quo. Quis aliquid 
+</p>
+
+
+<sh1>
+   Types of image Segmentation
+</sh1>
+<p>
+cum, ut quibusdam architecto vero aperiam tempora blanditiis doloribus vel expedita rerum minus repudiandae. Sequi perferendis similique facilis voluptatum, expedita non explicabo tempora illum quisquam, molestiae asperiores? Voluptas molestias possimus odit eos labore tenetur, quasi fugit pariatur tempore quod saepe animi asperiores nam commodi, recusandae optio? Id exercitationem, tempora assumenda velit, repellat laboriosam tempore inventore beatae reiciendis excepturi nisi. Voluptatum distinctio similique sunt quia at nostrum aliquid dicta error magni iusto! Architecto placeat nemo iste qui, deleniti iusto et voluptate asperiores, vel ad nam quo tenetur cumque facilis quod. Beatae atque laborum delectus excepturi! Officia facilis adipisci consequatur reprehenderit laborum, ipsa aperiam, odit eaque commodi rem itaque repellat veniam nobis neque nam, earum distinctio hic ratione accusamus similique! Neque saepe sapiente veniam excepturi voluptate, odit cumque assumenda blanditiis laudantium quidem temporibus perspiciatis libero sed voluptatem modi iusto repellat, dolore ab. Sint obcaecati eveniet, nihil vitae tempore fugit alias repellendus excepturi recusandae accusamus illo saepe ut dolorem et laboriosam, est architecto animi quasi totam? Vel necessitatibus deserunt fugiat, maiores dolorem ad tenetur consectetur dolore sunt dolorum. Deleniti quia, fuga exercitationem quam animi voluptatem porro a voluptas explicabo vitae iusto harum tempora perferendis ipsum repellendus facilis quod maxime ad, eligendi odio expedita earum. Fugiat deleniti inventore beatae velit assumenda dolore non ea reiciendis. Sit rem voluptate molestias quidem maxime aspernatur excepturi quasi, tenetur voluptatum corrupti illo, architecto vero sed minus repudiandae doloremque possimus ad? Labore eaque a aliquid sit dicta molestiae
+</p>
+<img1>
+<sh1>
+  kmen algorithm
+</sh1>
+<p>
+ id blanditiis, repellendus aut molestias, illum dolor officiis, pariatur eos exercitationem. Voluptatum eveniet hic pariatur sit est! Obcaecati assumenda eligendi totam in sequi inventore a fugit! Temporibus necessitatibus accusantium ipsa vitae praesentium labore quia dolorum, officia debitis quo corrupti perferendis aut optio asperiores molestiae hic atque nisi dolore veniam, obcaecati eveniet quasi architecto? Expedita delectus reiciendis voluptatum quidem! Natus, atque iste delectus harum at quae corrupti reprehenderit velit laudantium esse illo iure expedita eius dignissimos provident officiis veniam illum aliquam? Ad corporis officiis consectetur facere necessitatibus quaerat, animi in debitis veniam velit magni eveniet quod dolorem inventore aliquam unde nobis omnis excepturi! Saepe magnam a modi vero sequi recusandae quidem reprehenderit at inventore. Quia cumque laudantium corrupti labore minus odit iusto deleniti deserunt id! Reprehenderit non vel quis ad distinctio, deserunt veniam suscipit consequatur quibusdam nihil. Sed animi odio numquam omnis obcaecati laboriosam vel ipsum a exercitationem laborum ipsam reiciendis corporis illo quia ea porro mollitia maiores nobis, hic perferendis optio dicta, dolorem cum esse? Ex asperiores eius repellendus provident animi laboriosam at tempora tempore incidunt iste repellat quidem natus, nobis non molestias iure obcaecati fugit delectus fuga, nesciunt, eaque atque possimus eum accusantium! Quasi nisi accusantium nam! Est eos earum magnam aperiam totam dolores placeat facilis aliquam tenetur saepe reprehenderit nam dolorum consequatur non officia, laudantium delectus eius ratione? Nulla ab eligendi quidem nemo possimus exercitationem perspiciatis ut nostrum eum eveniet praesentium aperiam veritatis tempora, aliquam ratione cum quas suscipit hic soluta, esse repudiandae, autem qui. In laborum quos consectetur harum nulla autem veniam? Obcaecati optio cum officiis dolorem! Assumenda distinctio cupiditate numquam? Sed tenetur atque non possimus, enim molestiae aspernatur cumque. Doloremque laborum saepe eos animi quidem debitis eius praesentium esse fugiat voluptates quam, omnis repellendus enim cumque aliquam illum voluptatum reiciendis numquam hic. Ad quia nisi vero doloribus placeat necessitatibus possimus eos recusandae error delectus quo, sed ducimus, eius at aut suscipit? Totam consequatur dignissimos explicabo labore autem libero atque ab delectus animi amet tempore temporibus, eveniet adipisci laudantium dolore veritatis cumque accusantium? Veritatis, rem maxime.
+
+</p>
+
+
+
+
+
+
+buttons on side menu bar
+
+<a href="" class="sidebar-btns"> Techqiues used in image image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Techqiues used in image image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Types of image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Algorithms <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> flana Algorithms <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Image-segmentation using Kmen Algorithms <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> What is image-segmentation? <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Techqiues used in image image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Techqiues used in image image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Types of image-segmentation <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Algorithms <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> flana Algorithms <i class="fas fa-angle-right"></i></a>
+            <a href="" class="sidebar-btns"> Image-segmentation using Kmen Algorithms <i class="fas fa-angle-right"></i></a>
